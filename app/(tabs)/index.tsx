@@ -12,11 +12,16 @@ export default function HomeScreen() {
 
   if (!permission.granted) {
     return (
-      <View>
+      <View style={styles.permission}>
         <Text style={styles.text}>
           We need camera permission to start the Mirror
         </Text>
-        <Button onPress={requestPermission} title="Request permission" />
+        <Text style={{ color: "#fff" }}>
+          Don't Worry it's safe and we don't store any images
+        </Text>
+        <View style={{ marginTop: 20 }}>
+          <Button onPress={requestPermission} title="Grant permission" />
+        </View>
       </View>
     );
   }
@@ -48,8 +53,13 @@ const styles = StyleSheet.create({
     alignItems: "center",
   },
   text: {
-    fontSize: 24,
+    fontSize: 18,
     fontWeight: "bold",
     color: "white",
+  },
+  permission: {
+    flex: 1,
+    justifyContent: "center",
+    alignItems: "center",
   },
 });
